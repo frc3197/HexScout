@@ -1,0 +1,10 @@
+minimumReleaseAge: 10080
+
+packages:
+  - apps/adminpanel
+  - apps/backend
+  - apps/web
+  - packages/config
+  - packages/database
+  - packages/shared
+  - tooling/*

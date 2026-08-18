@@ -1,0 +1,29 @@
+{
+  "name": "hexscout",
+  "version": "27.0.0",
+  "description": "Scouting App developed by the 3197 Hexhounds",
+  "keywords": [
+    "first",
+    "frc",
+    "frc-scouting"
+  ],
+  "author": "pblez",
+  "license": "LGPL-2.1-only",
+  "private": true,
+  "type": "module",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.22.0",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "24.6.0",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

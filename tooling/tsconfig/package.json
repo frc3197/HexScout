@@ -1,0 +1,17 @@
+{
+  "name": "@HexScout/tsconfig",
+  "version": "1.0.0",
+  "description": "Shared TypeScript configurations",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "",
+  "files": [
+    "base.json"
+  ],
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "config"
+  ]
+}
