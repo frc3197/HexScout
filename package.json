@@ -1,0 +1,35 @@
+{
+  "name": "hexscout",
+  "version": "27.0.0",
+  "description": "Scouting App developed by the 3197 Hexhounds",
+  "keywords": [
+    "first",
+    "frc",
+    "frc-scouting"
+  ],
+  "author": "pblez",
+  "license": "LGPL-2.1-only",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @HexScout/backend --filter @HexScout/web dev",
+    "backend-init": "pnpm --filter @HexScout/backend exec drizzle-kit push",
+    "backend-dev": "pnpm --filter @HexScout/backend dev",
+    "web-dev": "pnpm --filter @HexScout/web dev"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.22.0",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "24.6.0",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
