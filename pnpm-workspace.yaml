@@ -1,10 +1,11 @@
-minimumReleaseAge: 10080
-
 packages:
   - apps/adminpanel
   - apps/backend
   - apps/web
   - packages/config
   - packages/database
-  - packages/shared
-  - tooling/*
+  - packages/shareds
+allowBuilds:
+  esbuild: set this to true or false
+minimumReleaseAgeExclude:
+  - hono@4.13.3
