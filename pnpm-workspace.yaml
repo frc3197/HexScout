@@ -6,6 +6,5 @@ packages:
   - packages/database
   - packages/shareds
 allowBuilds:
-  esbuild: set this to true or false
-minimumReleaseAgeExclude:
-  - hono@4.13.3
+  better-sqlite3: true
+  esbuild: true
