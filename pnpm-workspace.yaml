@@ -3,8 +3,8 @@ packages:
   - apps/backend
   - apps/web
   - packages/config
-  - packages/database
-  - packages/shareds
+  - packages/shared
 allowBuilds:
   better-sqlite3: true
   esbuild: true
+  argon2: true
