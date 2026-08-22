@@ -1,4 +1,4 @@
-import app from "../app.ts";
+import { Hono } from 'hono'
+const userRoutes = new Hono()
 
-// /api/users
-app
+export default userRoutes

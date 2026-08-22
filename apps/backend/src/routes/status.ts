@@ -1,7 +1,4 @@
-// /api/status
+import { Hono } from 'hono'
+const statusRoutes = new Hono()
 
-import app from "../app.ts";
-
-app.get('/api', (context) => {
-  return context.text('Hello Backend!')
-})
+export default statusRoutes
