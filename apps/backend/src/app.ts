@@ -5,8 +5,9 @@ import imageRoutes from './routes/image.ts'
 import scoutRoutes from './routes/scout.ts'
 import statusRoutes from './routes/status.ts'
 import userRoutes from './routes/users.ts'
+import type { Variables } from 'hono/types'
 
-const app = new Hono()
+const app = new Hono<{ Variables: Variables }>()
 
 app.get('/', (context) => {
   return context.text('Hello Backend!')
@@ -18,5 +19,8 @@ app.route('/image', imageRoutes)
 app.route('/scout', scoutRoutes)
 app.route('/status', statusRoutes)
 app.route('/users', userRoutes)
+
+
+console.log(app.routes)
 
 export default app

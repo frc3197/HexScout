@@ -239,7 +239,7 @@ importers:
         specifier: ^9.6.0
         version: 9.6.0
       '@types/node':
-        specifier: ^26.1.1
+        specifier: ^26.2.0
         version: 26.2.0
       drizzle-kit:
         specifier: 1.0.0-rc.4

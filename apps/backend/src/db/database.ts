@@ -1,33 +1,52 @@
-import { drizzle } from 'drizzle-orm/node-sqlite';
+import Database from 'better-sqlite3'
+import { drizzle } from 'drizzle-orm/better-sqlite3'
 
-const db = drizzle("database.sqlite");
+import {
+  roles,
+  rolePermissions,
+  relations,
+} from './schema.ts'
 
-import { roles, rolePermissions } from './schema.ts';
-import { administrator, scoutLead, stratTeam, scouter } from "@HexScout/shared"
-import { existsSync } from 'node:fs';
+import {
+  administrator,
+  scoutLead,
+  stratTeam,
+  scouter,
+} from '@HexScout/shared'
+
+const sqlite = new Database('database.sqlite')
+
+const db = drizzle({
+  client: sqlite,
+  relations,
+})
 
 const defaultRoles = [
   administrator,
   scoutLead,
   stratTeam,
   scouter,
-];
+]
 
 for (const role of defaultRoles) {
   await db
     .insert(roles)
-    .values({ name: role.name })
-    .onConflictDoNothing();
+    .values({
+      name: role.name,
+    })
+    .onConflictDoNothing()
 
   const permissionsPayload = role.permissions.map((permission) => ({
     roleName: role.name,
     permission,
-  }));
+  }))
 
   if (permissionsPayload.length > 0) {
     await db
       .insert(rolePermissions)
       .values(permissionsPayload)
-      .onConflictDoNothing();
+      .onConflictDoNothing()
   }
 }
+
+export default db
