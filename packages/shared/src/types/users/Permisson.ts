@@ -8,11 +8,12 @@ export enum Permission {
   UsersAdd     = "users.add",
   UsersDelete  = "users.delete",
   UsersEdit    = "users.edit",
+  UsersExport = "users.export",
   UsersClearDB = "users.clearDB",
 
   ImagesUpload  = "images.upload",
   ImagesDelete  = "images.delete",
-  ImagesReplace = "images.replace",
+  ImagesExport = "images.export",
   ImagesClearDB = "images.clearDB",
 
   AdminAccess = "admin.access",

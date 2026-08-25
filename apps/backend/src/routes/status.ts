@@ -1,8 +1,11 @@
 import { Hono } from 'hono'
 import { sql } from 'drizzle-orm'
 import db from '../db/database.ts'
+import type { AppVariables } from '../types/hono.ts'
 
-const statusRoutes = new Hono()
+const statusRoutes = new Hono<{
+  Variables: AppVariables
+}>()
 
 statusRoutes.get('/', async (c) => {
   try {

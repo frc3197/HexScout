@@ -22,11 +22,12 @@ export const administrator = new Role(
     Permission.UsersAdd,
     Permission.UsersDelete,
     Permission.UsersEdit,
+    Permission.UsersExport,
     Permission.UsersClearDB,
 
     Permission.ImagesUpload,
     Permission.ImagesDelete,
-    Permission.ImagesReplace,
+    Permission.ImagesExport,
     Permission.ImagesClearDB,
 
     Permission.AdminAccess,
@@ -43,10 +44,11 @@ export const scoutLead = new Role(
     Permission.ScoutingExport,
 
     Permission.UsersEdit,
+    Permission.UsersExport,
 
     Permission.ImagesUpload,
     Permission.ImagesDelete,
-    Permission.ImagesReplace,
+    Permission.ImagesExport,
 
     Permission.AdminAccess,
   ]
@@ -60,12 +62,9 @@ export const stratTeam = new Role(
     Permission.ScoutingEditSubmitted,
     Permission.ScoutingExport,
 
-    Permission.UsersAdd,
-    Permission.UsersEdit,
-
     Permission.ImagesUpload,
     Permission.ImagesDelete,
-    Permission.ImagesReplace,
+    Permission.ImagesExport
   ]
 );
 

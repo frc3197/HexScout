@@ -28,6 +28,10 @@ export const requirePermission = (permission: Permission) =>
   createMiddleware(async (c, next) => {
     const session = c.get('session')
 
+    if (!session) {
+      return c.json({ error: 'Unauthorized' }, 401)
+    }
+
     const user = await db.query.users.findFirst({
       where: {
         uuid: session.userId,

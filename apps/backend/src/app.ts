@@ -5,20 +5,22 @@ import imageRoutes from './routes/image.ts'
 import scoutRoutes from './routes/scout.ts'
 import statusRoutes from './routes/status.ts'
 import userRoutes from './routes/users.ts'
-import type { Variables } from 'hono/types'
+import type { AppVariables } from './types/hono.ts'
 
-const app = new Hono<{ Variables: Variables }>()
+const app = new Hono<{
+  Variables: AppVariables
+}>()
 
-app.get('/', (context) => {
+app.get('/api', (context) => {
   return context.text('Hello Backend!')
 })
 
-app.route('/auth', authRoutes)
-app.route('/db', dbRoutes)
-app.route('/image', imageRoutes)
-app.route('/scout', scoutRoutes)
-app.route('/status', statusRoutes)
-app.route('/users', userRoutes)
+app.route('/api/auth', authRoutes)
+app.route('/api/db', dbRoutes)
+app.route('/api/image', imageRoutes)
+app.route('/api/scout', scoutRoutes)
+app.route('/api/status', statusRoutes)
+app.route('/api/users', userRoutes)
 
 
 console.log(app.routes)

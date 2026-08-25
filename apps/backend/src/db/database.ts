@@ -5,6 +5,7 @@ import {
   roles,
   rolePermissions,
   relations,
+  users,
 } from './schema.ts'
 
 import {
@@ -12,6 +13,7 @@ import {
   scoutLead,
   stratTeam,
   scouter,
+  createHash,
 } from '@HexScout/shared'
 
 const sqlite = new Database('database.sqlite')
@@ -47,6 +49,27 @@ for (const role of defaultRoles) {
       .values(permissionsPayload)
       .onConflictDoNothing()
   }
+}
+
+const adminName = process.env.ADMIN_NAME ?? 'admin'
+const adminPin = process.env.ADMIN_PIN
+
+if (adminPin) {
+  const existingAdmin = await db.query.users.findFirst({
+    where: {
+      name: adminName,
+    },
+  })
+
+  if (!existingAdmin) {
+    await db.insert(users).values({
+      name: adminName,
+      roleName: administrator.name,
+      pinHash: await createHash(adminPin),
+    })
+  }
+} else {
+  console.warn('ADMIN_PIN is not set; skipping admin user seed.')
 }
 
 export default db

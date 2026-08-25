@@ -1,12 +1,7 @@
 import { Hono } from 'hono'
-import {
-  deleteCookie,
-  getCookie,
-  setCookie,
-} from 'hono/cookie'
+import { deleteCookie, getCookie, setCookie } from 'hono/cookie'
 import { eq } from 'drizzle-orm'
 
-import { requireSession } from './middleware.ts'
 import sessionService from '../security/SessionService.ts'
 
 import type { AppVariables } from '../types/hono.ts'
@@ -24,13 +19,13 @@ const authRoutes = new Hono<{
   Variables: AppVariables
 }>()
 
-authRoutes.post('/login', async (c) => {
-  const body = await c.req.json<{
+authRoutes.post('/', async (c) => {
+  const { name, pin } = await c.req.json<{
     name?: string
     pin?: string
   }>()
 
-  if (!body.name || !body.pin) {
+  if (!name || !pin) {
     return c.json({
       error: 'Name and PIN are required',
     }, 400)
@@ -38,7 +33,7 @@ authRoutes.post('/login', async (c) => {
 
   const user = await db.query.users.findFirst({
     where: {
-      name: body.name,
+      name,
     },
     with: {
       role: {
@@ -61,10 +56,7 @@ authRoutes.post('/login', async (c) => {
     }, 500)
   }
 
-  const validPin = await checkHash(
-    body.pin,
-    user.pinHash,
-  )
+  const validPin = await checkHash(pin, user.pinHash)
 
   if (!validPin) {
     return c.json({
@@ -89,45 +81,6 @@ authRoutes.post('/login', async (c) => {
     path: '/',
     maxAge: 60 * 60 * 24 * 7,
   })
-
-  return c.json({
-    user: toUser(toUserRecord(user)),
-  })
-})
-
-authRoutes.get('/me', requireSession, async (c) => {
-  const session = c.get('session')
-
-  const user = await db.query.users.findFirst({
-    where: {
-      uuid: session.userId,
-    },
-    with: {
-      role: {
-        with: {
-          permissions: true,
-        },
-      },
-    },
-  })
-
-  if (!user) {
-    return c.json({
-      error: 'User not found',
-    }, 404)
-  }
-
-  if (!user.active) {
-    return c.json({
-      error: 'User account is inactive',
-    }, 403)
-  }
-
-  if (!user.role) {
-    return c.json({
-      error: 'User has no valid role',
-    }, 500)
-  }
 
   return c.json({
     user: toUser(toUserRecord(user)),
