@@ -1,5 +1,4 @@
 packages:
-  - apps/adminpanel
   - apps/backend
   - apps/web
   - packages/config

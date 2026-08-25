@@ -36,7 +36,7 @@ function parseScoutForm(form: ScoutForm & { history?: ScoutFormHistoryEntry[] })
 /**
  * The Class for the Wrapped API
  */
-export default class HexWrapper {
+export class HexWrapper {
   readonly url: string;
   readonly auth: {
     login: (name: string, pin: string) => Promise<User>;
@@ -313,3 +313,5 @@ export default class HexWrapper {
     return { success: body.success === true }
   }
 }
+
+export default HexWrapper

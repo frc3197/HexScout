@@ -1,6 +1,10 @@
 {
   "name": "@HexScout/shared",
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts"
+  },
   "main": "src/index.ts",
   "devDependencies": {
     "@types/node": "^26.2.0",

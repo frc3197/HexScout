@@ -11,6 +11,9 @@
   "license": "LGPL-2.1-only",
   "private": true,
   "type": "module",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @HexScout/backend --filter @HexScout/web dev"
+  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
