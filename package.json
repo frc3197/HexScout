@@ -12,7 +12,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm --parallel --filter @HexScout/backend --filter @HexScout/web dev"
+    "dev": "pnpm --parallel --filter @HexScout/backend --filter @HexScout/web dev",
+    "backend-init": "pnpm --filter @HexScout/backend exec drizzle-kit push",
+    "backend-dev": "pnpm --filter @HexScout/backend dev",
+    "web-dev": "pnpm --filter @HexScout/web dev"
   },
   "devEngines": {
     "packageManager": {
