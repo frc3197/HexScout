@@ -1,7 +1,6 @@
 packages:
   - apps/backend
   - apps/web
-  - packages/config
   - packages/shared
 allowBuilds:
   better-sqlite3: true
