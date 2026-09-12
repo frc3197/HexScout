@@ -1,9 +1,0 @@
-{
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "RioEdwards.component-preview",
-    "svelte.svelte-vscode",
-    "hediet.vscode-drawio"
-  ]
-}
