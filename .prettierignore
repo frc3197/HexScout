@@ -4,3 +4,4 @@ build
 .svelte-kit
 coverage
 pnpm-lock.yaml
+.env
