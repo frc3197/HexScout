@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-pnpm dlx sv@0.17.0 create --template minimal --types ts --add sveltekit-adapter="adapter:node" drizzle="database:sqlite+sqlite:better-sqlite3" --install pnpm backend
+pnpm dlx sv@0.17.0 create --template minimal --types ts --add sveltekit-adapter="adapter:node" mdsvex --install pnpm frontend
 ```
 
 ## Developing
