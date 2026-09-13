@@ -2,9 +2,9 @@
   "name": "@hexscout/api-wrapper",
   "version": "27.0.0",
   "main": "src/index.ts",
-  "keywords": [
-    "config"
-  ],
   "packageManager": "pnpm@10.11.1",
-  "dependencies": {}
+  "dependencies": {
+    "@hexscout/config": "workspace:*",
+    "@hexscout/shared": "workspace:*"
+  }
 }

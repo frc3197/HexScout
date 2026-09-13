@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "better-sqlite3": "^13.0.2",
-    "@hexscout/config": "workspace:*"
+    "@hexscout/config": "workspace:*",
+    "@hexscout/shared": "workspace:*"
   }
 }
