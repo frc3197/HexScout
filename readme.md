@@ -12,6 +12,8 @@ A Scouting App/Member Management system written by Team 3197 Hexhounds
 
 - [Features](#features)
 
+- [Information](#information)
+
 - [Developing](#developing)
 
 ## Setup
@@ -25,5 +27,10 @@ A Scouting App/Member Management system written by Team 3197 Hexhounds
 ### VM/Bare Metal
 
 ## Features
+
+## Information
+
+- Server API Port 3300
+- Frontend Port 2200
 
 ## Developing
