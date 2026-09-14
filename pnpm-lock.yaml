@@ -56,6 +56,9 @@ importers:
       '@hexscout/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@hexscout/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       better-sqlite3:
         specifier: ^13.0.2
         version: 13.0.3
